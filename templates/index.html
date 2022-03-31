@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block title %}
+    Home 
+{% endblock title %}
+
+{% block body %}
+<h1 class="text-center">Home page</h1>
+<div class="container my-2 " style="width: 100%">
+    <div class="row my-4">
+        {% for blog in show %}
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color:rgb(169, 231, 255);">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-2">Title : {{blog.title}}</h3>
+                    <h6 class="mb-2 text-muted">Date:-{{blog.pub_date}}</h6> 
+                    <h6 class="mb-2 text-muted">By:-{{blog.author}}</h6>  
+                    <p class="card-text mb-2">Content:-{{blog.content}}</p>
+                    <a href="/detail/{{blog.Blog_id}}" class="btn btn-dark mb-2">Continue reading</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}
